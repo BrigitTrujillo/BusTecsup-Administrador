@@ -1,0 +1,10 @@
+.inicio{
+
+
+}
+
+.top-bar {
+    background-color: #007bff; /* Celeste */
+    color: white; /* Color del texto en la barra superior */
+    padding: 10px; /* Espaciado interno para la barra superior */
+  }
