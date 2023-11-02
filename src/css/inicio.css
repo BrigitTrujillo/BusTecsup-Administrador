@@ -1,10 +1,110 @@
-.inicio{
-
-
+.top-bar {
+  background-color: #74AEF3;
+  color: #000000;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 20px;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  left: 0;
+ 
 }
 
-.top-bar {
-    background-color: #007bff; /* Celeste */
-    color: white; /* Color del texto en la barra superior */
-    padding: 10px; /* Espaciado interno para la barra superior */
-  }
+/* Estilos para el contenedor principal */
+.inicio {
+  display: flex;
+  height: 100vh;
+}
+
+/* Estilos para la imagen */
+.image {
+  flex: 1;
+  height: calc(100vh - 20px);
+  width: 100%; /* Configura el ancho al 100% */
+  left: 0;
+  position: fixed;
+  margin-top: 4.9%;
+  
+  
+}
+
+/* Estilos para el contenido de la derecha */
+.content {
+  flex: 1; /* El contenido de la derecha ocupa la otra mitad del contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos para el rectángulo a la derecha */
+.side-rectangle {
+  background-color: #D9D9D9;
+  width: 245px; /* Ancho del rectángulo */
+  padding: 20px;
+  right: 160px;
+  height: 360px;
+  position: fixed;
+  border-radius: 3%;
+  
+  
+}
+
+.side-rectangle input {
+  margin-bottom: 20px;
+  
+}
+
+.text {
+  font-family: 'Armata', sans-serif;
+  display: flex;
+  margin-left: 20%;
+  align-items: center;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.bus-image {
+ 
+  margin-left: 25px;
+  margin-bottom: 45%;/* Add spacing between the text and Bus image */
+}
+
+
+input {
+  position: center;
+  height: 9%;
+  width: 90%;
+  position: center;
+  border-radius: 7%;
+  border: #D9D9D9;
+  border-radius: 2%;
+}
+
+.text-container {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  font-family: 'Armata', sans-serif;
+  margin-top: -40%; 
+}
+
+
+.tecsup-image {
+  margin-top: 10%;
+  margin-right: 70%; 
+  margin-left: -80%;/* Ajusta el margen izquierdo según sea necesario */
+}
+
+button{
+  background-color: #4399FF;
+  border-radius: 7%;
+  width: 100%;
+  
+
+} 
+a{
+  position: center;
+}  

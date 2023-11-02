@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+img.eliminar{
+    height: 15px;
+    position: absolute;
+    left: 940px;
+
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.eliminar {
+  /* Estilos para la imagen */
+  margin-left: 10px; /* Puedes ajustar este valor según sea necesario */
+}
+ span.eliminar-texto{
+    position: absolute;
+    right: 350px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+ }
+
+img.flecha{
+    width: 10px;
+}
+
+h2{
+    text-align: center;
+    margin-top: 70px;
+    color: blue;
+    font-size: 30px;
+}

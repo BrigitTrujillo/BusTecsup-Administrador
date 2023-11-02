@@ -1,0 +1,198 @@
+/* Estilos para el navbar */
+.inicio-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1ca1d6;
+  padding: 10px 0; /* Eliminamos el relleno interno horizontal */
+  width: 100%; /* Aseguramos que el ancho sea del 100% */
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar-left ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-left ul li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Estilos para la tabla */
+/* Estilos para la tabla */
+.table-container {
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 70%;
+  border-collapse: collapse;
+  margin: 0 auto; /* Ajuste para centrar la tabla */
+}
+
+th, td {
+  border: 1px solid #fdfbfb;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+tr:hover {
+  background-color: #e2e2e2;
+}
+
+button {
+  padding: 6px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+
+}
+
+button:hover {
+  background-color: #4399FF;
+}
+
+button:active {
+  background-color: #4399FF;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: block; /* Asegúrate de que el modal esté visible */
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin-bottom: 20%;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Ubicación central vertical y horizontal */
+  padding: 20px;
+  border: 1px solid #ffffff;
+  width: 80%; /* Ancho del modal */
+}
+
+.close {
+  color: #fcf9f9;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+.btn1 {
+  position: absolute;
+  
+  right:250px; /* You can adjust this value to position the button exactly where you need it */
+
+  background-color: #0070FF;
+  color: rgb(255, 255, 255);
+  width: 160px;
+  
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form{
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  height: 440px;
+  border: 2px solid #CECECE;
+  border-radius: 3px;
+  background-color: #F6F6F6;
+ 
+}
+input {
+  width: 75%;
+  display: block;
+  margin: 0 auto;
+  height: 28px;
+  border-radius: 3%;
+  border: 2px solid #ACA3B9; /* Cambia el color del borde según tus necesidades */
+}
+button.submit{
+  width: 35%;
+
+}
+
+h1{
+  color: #0756F0;
+  height: 30px;
+  text-align: center;
+  size: 20px;
+}
+
+button.img{
+  background: #ffffff;
+  width: 30px;
+ 
+
+  
+}
+img.img{
+  width: 15px;
+}
+label{
+  position: absolute;
+  left: 32%;
+}
+
+button.submit1{
+  background-color: #0070FF;
+  width: 140px;
+  position: absolute;
+  left: 52%;
+  
+}
+button.submit2{
+
+  position: absolute;
+  background-color: #0756F0;
+  width: 140px;
+  left: 32%;
+}
