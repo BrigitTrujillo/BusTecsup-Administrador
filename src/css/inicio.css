@@ -21,12 +21,20 @@
 .image {
   flex: 1;
   height: calc(100vh - 20px);
-  width: 100%; /* Configura el ancho al 100% */
+  width: 66.5%; /* Configura el ancho al 100% */
   left: 0;
   position: fixed;
-  margin-top: 4.9%;
+  border-color: #F9EEEE;
   
   
+  
+}
+
+label.label{
+  position: absolute;
+  left: 20px;
+  margin-top: -20px;
+  border-radius: 2%
 }
 
 /* Estilos para el contenido de la derecha */
@@ -102,9 +110,30 @@ button{
   background-color: #4399FF;
   border-radius: 7%;
   width: 100%;
+  height: 9%;
   
 
 } 
 a{
   position: center;
 }  
+
+input.label {
+  width: 95%;
+  display: block;
+  border: 2px solid #F9EEEE;
+  background-color: #F9EEEE;
+}
+
+img.google{
+  position: absolute;
+  max-width: 88%;
+ left: 6%;
+ bottom: 6%;
+ 
+}
+image.image{
+  position: relative;
+  margin-bottom: 40%;
+  width: 50%;
+}

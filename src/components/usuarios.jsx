@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/registro.css';
 import '../css/usuario.css';
 import eliminarImg from '../assets/eliminar.png';
@@ -6,6 +6,19 @@ import FlechaImg from '../assets/flecha.png'; // Asegúrate de que la ruta sea c
 
 
 function Usuario() {
+
+
+
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api-node-bus.onrender.com/api/usuarios')
+      .then(response => response.json())
+      .then(data => setUsuarios(data))
+      .catch(error => console.error('Error al obtener los usuarios:', error));
+  }, []);
+
+  
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
  
@@ -14,7 +27,12 @@ function Usuario() {
     setModalIsOpen(false);
   };
   const handleClickEliminar = () => {
-    // Lógica para manejar el clic en el botón "Eliminar"
+    if (window.confirm('¿Estás seguro de que deseas eliminar este elemento?')) {
+      // Aquí puedes realizar la lógica para eliminar el elemento
+      console.log('Elemento eliminado');
+    } else {
+      console.log('Eliminación cancelada');
+    }
   };
   const handleClickFlecha = () => {
     // Lógica para manejar el clic en el botón "Eliminar"
@@ -42,28 +60,32 @@ function Usuario() {
               onClick={handleClickFlecha}/></th>
               <th>Correo<img class="flecha" src={FlechaImg} alt="Flecha"
               onClick={handleClickFlecha}/></th>
-              <th>Codigo<img class="flecha" src={FlechaImg} alt="Flecha"
-              onClick={handleClickFlecha}/></th>
+              
               <th>Eliminar<img class="flecha" src={FlechaImg} alt="Flecha"
               onClick={handleClickFlecha}/></th>
             </tr>
           </thead>
           <tbody>
-            {/* Aquí deberías mapear los datos de tu tabla en filas */}
-            <tr>
-              <td>Dato 1</td>
-              <td>Dato 2</td>
-              <td>Dato 4</td>
-              <td>Dato 5</td>
-              <td>
+          {usuarios.map(usuario => (
+              <tr key={usuario.id}>
+                <td>Puente Nuevo</td>
+                <td>{usuario.nombre}</td>
+                <td>{usuario.email}</td> 
+              
+                <td>
+           
               <button class='img' onClick={handleClickEliminar}>
               <img class='img' src={eliminarImg} alt="Eliminar" />
               </button>
-              </td>
-            </tr>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
+
+
+
 
       {modalIsOpen && (
         <div className="modal">
@@ -74,25 +96,18 @@ function Usuario() {
             <h1>Registro de Conductores</h1>
             <form>
   <div className="form-group">
-    <label htmlFor="input1">Usuario:</label><br />
+    <label class="label" htmlFor="input1">Reserva:</label><br />
     <input type="text" id="input1" placeholder="Joaquin Marquez Perez" />
   </div><br/>
   <div className="form-group">
-    <label htmlFor="input2">Correo:</label><br />
+    <label class="label" htmlFor="input2">Usuario:</label><br />
     <input type="text" id="input2" placeholder="Joaquin@tecsup.edu.pe" />
   </div><br/>
   <div className="form-group">
-    <label htmlFor="input3">Telefono:</label><br />
+    <label class="label" htmlFor="input3">Correo:</label><br />
     <input type="text" id="input3" placeholder="913333332" />
   </div><br/>
-  <div className="form-group">
-    <label htmlFor="input4">Codigo:</label><br />
-    <input type="text" id="input4" placeholder="1232" />
-  </div><br/>
-  <div className="form-group">
-    <label htmlFor="input5">Ruta:</label><br />
-    <input type="text" id="input5" placeholder="Puente Nuevo"/>
-  </div><br />
+
   <button class="submit1" type="submit">Agregar</button>
   <button  class="submit2" type="button" onClick={closeModal}>Cancelar</button><br/>
 </form>

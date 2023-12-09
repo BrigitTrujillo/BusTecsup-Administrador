@@ -31,7 +31,7 @@ function App() {
     </div>
     <div className="navbar-right">
       <div className="user-profile">
-        <img src="url_de_tu_imagen" alt="User Profile" className="user-image" />
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="User Profile" className="user-image" />
       </div>
     </div>
   </div>

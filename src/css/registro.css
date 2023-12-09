@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1ca1d6;
+  background-color: #FFFFFF;
   padding: 10px 0; /* Eliminamos el relleno interno horizontal */
   width: 100%; /* Aseguramos que el ancho sea del 100% */
   margin: 0;
@@ -11,7 +11,9 @@
   top: 0;
   left: 0;
   right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Agregamos una sombra con los valores adecuados */
 }
+
 
 .navbar-left ul {
   list-style-type: none;
@@ -51,8 +53,9 @@ table {
 
 th, td {
   border: 1px solid #fdfbfb;
-  padding: 8px;
+  padding: 10px;
   text-align: left;
+  width: 60%;
 }
 
 th {
@@ -100,10 +103,10 @@ button:active {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* Ubicación central vertical y horizontal */
-  padding: 20px;
+  margin: -9% auto; /* Ubicación central vertical y horizontal */
+  padding: 100px;
   border: 1px solid #ffffff;
-  width: 80%; /* Ancho del modal */
+  width: 90%; /* Ancho del modal */
 }
 
 .close {
@@ -126,8 +129,8 @@ button:active {
 .btn1 {
   position: absolute;
   
-  right:250px; /* You can adjust this value to position the button exactly where you need it */
-
+  right:260px; /* You can adjust this value to position the button exactly where you need it */
+  height:30px;
   background-color: #0070FF;
   color: rgb(255, 255, 255);
   width: 160px;
@@ -138,10 +141,10 @@ button:active {
 }
 
 form{
-  width: 60%;
+  width: 30%;
   display: block;
   margin: 0 auto;
-  height: 440px;
+  height: 570px;
   border: 2px solid #CECECE;
   border-radius: 3px;
   background-color: #F6F6F6;
@@ -179,20 +182,47 @@ img.img{
 }
 label{
   position: absolute;
-  left: 32%;
+  left: 41%;
 }
 
 button.submit1{
   background-color: #0070FF;
-  width: 140px;
+  width: 118px;
   position: absolute;
-  left: 52%;
+  left: 50.3%;
+  height: 6%;
   
 }
 button.submit2{
 
   position: absolute;
   background-color: #0756F0;
-  width: 140px;
-  left: 32%;
+  width: 110px;
+  left: 41%;
+  height: 6%;
+}
+
+a {
+  color: #000;
+  font-weight: bold; /* Para hacer el texto en negrita */
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Para establecer la fuente como Plus Jakarta Sans y como respaldo 'sans-serif' */
+  justify-content: center; /* Para alinear horizontalmente en el centro */
+  align-items: center; /* Para alinear verticalmente en el centro */
+  height: 100%;
+  font-size: 20px;
+  
+   /* Ajusta la altura al 100% del contenedor */
+}
+
+div.navbar-left{
+
+  position: relative;
+  left: 40%;
+  
+}
+
+img.perfil-img{
+
+  width: 50px;
+
 }

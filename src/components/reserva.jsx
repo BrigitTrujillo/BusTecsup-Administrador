@@ -15,12 +15,24 @@ function Reserva() {
     setModalIsOpen(false);
   };
   const handleClickEliminar = () => {
-    // Lógica para manejar el clic en el botón "Eliminar"
+    if (window.confirm('¿Estás seguro de que deseas eliminar este elemento?')) {
+      // Aquí puedes realizar la lógica para eliminar el elemento
+      console.log('Elemento eliminado');
+    } else {
+      console.log('Eliminación cancelada');
+    }
   };
 
-  const handleClickEditar = () => {
-    // Lógica para manejar el clic en el botón "Editar"
+  const [editModalIsOpen, setEditModalIsOpen] = useState(false);
+  
+  const openEditModal = () => {
+    setEditModalIsOpen(true);
   };
+
+  const closeEditModal = () => {
+    setEditModalIsOpen(false);
+  };
+
   const handleClickFlecha = () => {
     // Lógica para manejar el clic en el botón "Eliminar"
   };
@@ -52,12 +64,12 @@ function Reserva() {
           <tbody>
             {/* Aquí deberías mapear los datos de tu tabla en filas */}
             <tr>
-              <td>Dato 1</td>
-              <td>Dato 2</td>
-              <td>Dato 3</td>
-              <td>Dato 4</td>
+              <td>Puente Nuevo</td>
+              <td>Puente Nuevo - Tecsup</td>
+              <td>7:00 am</td>
+              <td>10</td>
               <td>
-              <button class='img' onClick={handleClickEditar}>
+              <button class='img' onClick={openEditModal}>
               <img  class='img' src={editarImg} alt="Editar" />
               </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <button class='img' onClick={handleClickEliminar}>
@@ -75,28 +87,25 @@ function Reserva() {
             <span className="close" onClick={closeModal}>
               &times;
             </span>
-            <h1>Registro de Conductores</h1>
+            <h1>Registro de Paradero</h1>
             <form>
   <div className="form-group">
-    <label htmlFor="input1">Usuario:</label><br />
+    <label htmlFor="input1">Ruta:</label><br />
     <input type="text" id="input1" placeholder="Joaquin Marquez Perez" />
   </div><br/>
   <div className="form-group">
-    <label htmlFor="input2">Correo:</label><br />
+    <label htmlFor="input2">Recorrido:</label><br />
     <input type="text" id="input2" placeholder="Joaquin@tecsup.edu.pe" />
   </div><br/>
   <div className="form-group">
-    <label htmlFor="input3">Telefono:</label><br />
+    <label htmlFor="input3">Horarios:</label><br />
     <input type="text" id="input3" placeholder="913333332" />
   </div><br/>
   <div className="form-group">
-    <label htmlFor="input4">Codigo:</label><br />
+    <label htmlFor="input4">Paradero:</label><br />
     <input type="text" id="input4" placeholder="1232" />
   </div><br/>
-  <div className="form-group">
-    <label htmlFor="input5">Ruta:</label><br />
-    <input type="text" id="input5" placeholder="Puente Nuevo"/>
-  </div><br />
+ 
   <button class="submit1" type="submit">Agregar</button>
   <button  class="submit2" type="button" onClick={closeModal}>Cancelar</button><br/>
 </form>
@@ -104,7 +113,40 @@ function Reserva() {
           </div>
         </div>
       )}
-    </div>
+    {editModalIsOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeEditModal}>
+              &times;
+            </span>
+            <h1>Actualizar Paradero</h1>
+            <form>
+  <div className="form-group">
+    <label htmlFor="input1">Ruta:</label><br />
+    <input type="text" id="input1" placeholder="Joaquin Marquez Perez" />
+  </div><br/>
+  <div className="form-group">
+    <label htmlFor="input2">Recorrido:</label><br />
+    <input type="text" id="input2" placeholder="Joaquin@tecsup.edu.pe" />
+  </div><br/>
+  <div className="form-group">
+    <label htmlFor="input3">Horarios:</label><br />
+    <input type="text" id="input3" placeholder="913333332" />
+  </div><br/>
+  <div className="form-group">
+    <label htmlFor="input4">Paradero:</label><br />
+    <input type="text" id="input4" placeholder="1232" />
+  </div><br/>
+ 
+  <button class="submit1" type="submit">Agregar</button>
+  <button  class="submit2" type="button" onClick={closeModal}>Cancelar</button><br/>
+</form>
+
+  </div>
+</div> 
+)}</div>
+
+    
   );
 }
 
