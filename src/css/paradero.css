@@ -1,0 +1,385 @@
+/* Estilos para el navbar */
+.inicio-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00B1F7;
+    padding: 10px 0; /* Eliminamos el relleno interno horizontal */
+    width: 100%; /* Aseguramos que el ancho sea del 100% */
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Agregamos una sombra con los valores adecuados */
+  }
+  
+  
+  .navbar-left ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar-left ul li {
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 25px; /* Ajusta el valor según tus necesidades */
+  }
+  
+  
+  /* Estilos para la tabla */
+  /* Estilos para la tabla */
+  .table-container {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+  }
+  
+
+  
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: -90px;
+    background-color: #e1ecff; /* Tono más claro de azul cielo */
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      width: 100%;
+    }
+  }
+  
+  th, td {
+    border: 1px solid #fdfbfb;
+    padding: 10px;
+    text-align: left;
+    width: 10%;
+    box-sizing: border-box; /* Añadido para incluir padding y border en el ancho total */
+  }
+  
+  @media (max-width: 600px) {
+    th, td {
+      width: 100%;
+      display: block;
+      box-sizing: border-box; /* Añadido para incluir padding y border en el ancho total */
+      margin-bottom: 10px; /* Añadido margen inferior para separar las celdas apiladas */
+    }
+  }
+  
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  tr:hover {
+    background-color: #e2e2e2;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: flex-end; /* Coloca los botones al lado derecho del contenedor */
+  }
+  
+  .btn1 {
+    padding: 5px 20px;
+    width: 100px;
+   
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    margin-right: auto;
+    
+    left: 55%; /* Hace que el margen derecho sea automático (empuja el botón a la izquierda) */
+    /* Agrega cualquier estilo adicional que desees para el botón 1 */
+  }
+  
+  .btn2 {
+    padding: 6px 20px;
+    width: 100px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    /* Agrega cualquier estilo adicional que desees para el botón 2 */
+  }
+  
+  
+  
+  button:hover {
+    background-color: #5ca8ff;
+  }
+  
+  button:active {
+    background-color: #4399FF;
+  }
+  
+  /* Estilos para el modal */
+  .modal {
+    display: block; /* Asegúrate de que el modal esté visible */
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-bottom: 20%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+  }
+  
+/* Estilos generales para el contenido del modal */
+.modal-content {
+  background-color: rgba(230, 230, 230, 0.9); /* Color azul claro con 90% de opacidad */
+  margin: auto;
+  padding: 1px;
+  height: 100%;
+  border: 1px solid #ffffff;
+  width: 90%;
+  max-width: 400px;
+}
+
+.mi-nueva-clase{
+  background-color: rgba(230, 230, 230, 0.9); /* Color azul claro con 90% de opacidad */
+  margin: auto;
+  padding: 1px;
+  height: 100%;
+  border: 1px solid #ffffff;
+  width: 90%;
+  max-width: 400px;
+}
+/* Reglas de medios para hacerlo más responsivo */
+@media screen and (min-width: 768px) {
+  /* Ajusta los estilos para pantallas más grandes (por ejemplo, tabletas y escritorios) */
+  .modal-content {
+    max-width: 600px; /* Por ejemplo, aumenta el ancho máximo para pantallas más grandes */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* Ajusta los estilos para pantallas más grandes (por ejemplo, escritorios más grandes) */
+  .modal-content {
+    max-width: 1000px; /* Por ejemplo, aumenta el ancho máximo para pantallas más grandes */
+  }
+}
+
+  
+  .close {
+    color: #fcf9f9;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  .btn1 {
+    position: absolute;
+    
+    right:290px; /* You can adjust this value to position the button exactly where you need it */
+    height:30px;
+    background-color: #0070FF;
+    color: rgb(255, 255, 255);
+    width: 160px;
+    
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+
+  /* Cambia .registro-form a .mi-nueva-clase */
+  .registro-form1{
+  width: 60%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #CECECE;
+  border-radius: 5px;
+  height: 70%;
+  background-color: rgba(246, 246, 246, 0.9);
+  }
+  .mi-nueva-clase {
+    width: 80%; /* Ajusta según tus preferencias */
+    max-width: 600px; /* Limita el ancho máximo para que no se extienda demasiado */
+    margin: -20px auto; /* Centra el formulario y agrega espacio en la parte superior e inferior */
+    padding: 20px; /* Añade relleno para separar el contenido del borde */
+    border: 2px solid #CECECE;
+    border-radius: 5px;
+    height: 515px;
+  
+    background-color: rgba(246, 246, 246, 0.9);
+  }
+  
+  
+
+
+
+
+  .btn12 {
+    position: absolute;
+    right: 260px;
+    height: 30px;
+    background-color: #0070FF;
+    color: rgb(255, 255, 255);
+    width: 160px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+  form2{
+    width: 50%; /* Ajusta según tus preferencias */
+    max-width: 400px; /* Limita el ancho máximo para que no se extienda demasiado */
+    margin: 20px auto; /* Centra el formulario y agrega espacio en la parte superior e inferior */
+    padding: 20px; /* Añade relleno para separar el contenido del borde */
+    border: 2px solid #CECECE;
+    border-radius: 5px;
+    height: 417px;
+    background-color: #F6F6F6;
+  }
+  
+  input {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    margin-bottom: 15px; /* Añade espacio entre los campos de entrada */
+    height: 40px; /* Ajusta la altura según tus preferencias */
+    padding: 10px; /* Añade relleno para separar el texto del borde */
+    border-radius: 5px;
+    border: 2px solid #ACA3B9;
+  }
+  
+  button.submit{
+    width: 35%;
+  
+  }
+  
+  h1{
+    color: #0756F0;
+    height: 38px;
+    font-size: 25px;
+    margin-top: auto;
+    text-align: center;
+    
+  }
+  
+  button.img{
+    background: #ffffff;
+    width: 30px;
+   
+  
+    
+  }
+  img.img{
+    width: 15px;
+  }
+ .registro-label {
+    position: absolute;
+    left: 37%; /* Ajusta según tus necesidades, un valor menor para moverlo más a la izquierda */
+  }
+  
+  
+  button.submit1{
+    background-color: #0070FF;
+    width: 118px;
+    position: absolute;
+    left: 50.3%;
+    height: 6%;
+    
+  }
+  button.submit2{
+  
+    position: absolute;
+    background-color: #0756F0;
+    width: 110px;
+    left: 41%;
+    height: 6%;
+  }
+  
+  a {
+    color: #000;
+    font-weight: bold; /* Para hacer el texto en negrita */
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Para establecer la fuente como Plus Jakarta Sans y como respaldo 'sans-serif' */
+    justify-content: center; /* Para alinear horizontalmente en el centro */
+    align-items: center; /* Para alinear verticalmente en el centro */
+    height: 100%;
+    font-size: 20px;
+    
+     /* Ajusta la altura al 100% del contenedor */
+  }
+  
+  div.navbar-left {
+    position: relative;
+    left: 40%;
+  }
+  
+  @media (max-width: 768px) {
+    div.navbar-left {
+      left: 20%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    div.navbar-left {
+      left: 10%;
+    }
+  }
+  
+  
+  img.perfil-img{
+  
+    width: 50px;
+  
+  }
+  
+  select {
+    width: 100%;
+    height: 40px; /* Puedes ajustar la altura según tus preferencias */
+  }
+  
+
+  select {
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Para esquinas redondeadas */
+  }
+  select {
+    cursor: pointer;
+  }
+
+  
+  .button-container {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+  }
+  
+  .btn1, .btn2 {
+    /* Agrega cualquier estilo adicional que desees para los botones */
+  }
+  
+  

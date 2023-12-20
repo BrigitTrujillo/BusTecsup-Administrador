@@ -46,10 +46,14 @@
 }
 
 table {
-  width: 70%;
+  width: 80%;
   border-collapse: collapse;
-  margin: 0 auto; /* Ajuste para centrar la tabla */
+  margin-top: 20px;
 }
+
+
+
+
 
 th, td {
   border: 1px solid #fdfbfb;
@@ -140,24 +144,17 @@ button:active {
   cursor: pointer;
 }
 
-form{
-  width: 30%;
-  display: block;
-  margin: 0 auto;
-  height: 570px;
-  border: 2px solid #CECECE;
-  border-radius: 3px;
-  background-color: #F6F6F6;
- 
-}
+
 input {
-  width: 75%;
-  display: block;
-  margin: 0 auto;
-  height: 28px;
-  border-radius: 3%;
-  border: 2px solid #ACA3B9; /* Cambia el color del borde según tus necesidades */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+  margin-bottom: 15px; /* Añade espacio entre los campos de entrada */
+  height: 40px; /* Ajusta la altura según tus preferencias */
+  padding: 10px; /* Añade relleno para separar el texto del borde */
+  border-radius: 5px;
+  border: 2px solid #ACA3B9;
 }
+
 button.submit{
   width: 35%;
 
@@ -180,10 +177,11 @@ button.img{
 img.img{
   width: 15px;
 }
-label{
+label {
   position: absolute;
-  left: 41%;
+  left: 3%; /* Ajusta según tus necesidades, un valor menor para moverlo más a la izquierda */
 }
+
 
 button.submit1{
   background-color: #0070FF;
@@ -226,3 +224,6 @@ img.perfil-img{
   width: 50px;
 
 }
+
+
+

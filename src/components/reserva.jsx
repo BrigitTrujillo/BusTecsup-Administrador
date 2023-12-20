@@ -1,153 +1,115 @@
-import React, { useState } from 'react';
-import '../css/registro.css';
-import eliminarImg from '../assets/eliminar.png'; // Asegúrate de que la ruta sea correcta
-import editarImg from '../assets/editar.png';
-import FlechaImg from '../assets/flecha.png';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import '../css/reserva.css';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
-function Reserva() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+const Reserva = () => {
+  const [data, setData] = useState([]);
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-  const handleClickEliminar = () => {
-    if (window.confirm('¿Estás seguro de que deseas eliminar este elemento?')) {
-      // Aquí puedes realizar la lógica para eliminar el elemento
-      console.log('Elemento eliminado');
-    } else {
-      console.log('Eliminación cancelada');
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('https://api-node-bus.onrender.com/api/reservas');
+      setData(response.data);
+    } catch (error) {
+      console.error('Error al obtener datos de la API:', error);
     }
   };
 
-  const [editModalIsOpen, setEditModalIsOpen] = useState(false);
+  const handleImprimirManifiesto = () => {
+    const reservasConfirmadas = data.filter((reserva) => reserva.confirmado);
   
-  const openEditModal = () => {
-    setEditModalIsOpen(true);
-  };
-
-  const closeEditModal = () => {
-    setEditModalIsOpen(false);
-  };
-
-  const handleClickFlecha = () => {
-    // Lógica para manejar el clic en el botón "Eliminar"
-  };
-  return (
-    <div className="inicio-container">
-       <h2>Paraderos de BusTecsup</h2>
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th colSpan="6">
-                Buses
-                <button  class='btn1' onClick={openModal}>+ Añadir Paradero</button>
-              </th>
-             
-            </tr>
-            <tr>
-              <th>Ruta<img class="flecha" src={FlechaImg} alt="Flecha"
-              onClick={handleClickFlecha}/></th>
-              <th>Recorrido<img class="flecha" src={FlechaImg} alt="Flecha"
-              onClick={handleClickFlecha}/></th>
-              <th>Horarios<img class="flecha" src={FlechaImg} alt="Flecha"
-              onClick={handleClickFlecha}/></th>
-              <th>Asientos<img class="flecha" src={FlechaImg} alt="Flecha"
-              onClick={handleClickFlecha}/></th>
-              <th>Editar&nbsp;&nbsp;&nbsp;&nbsp;Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* Aquí deberías mapear los datos de tu tabla en filas */}
-            <tr>
-              <td>Puente Nuevo</td>
-              <td>Puente Nuevo - Tecsup</td>
-              <td>7:00 am</td>
-              <td>10</td>
-              <td>
-              <button class='img' onClick={openEditModal}>
-              <img  class='img' src={editarImg} alt="Editar" />
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button class='img' onClick={handleClickEliminar}>
-              <img class='img' src={eliminarImg} alt="Eliminar" />
-              </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      {modalIsOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <h1>Registro de Paradero</h1>
-            <form>
-  <div className="form-group">
-    <label htmlFor="input1">Ruta:</label><br />
-    <input type="text" id="input1" placeholder="Joaquin Marquez Perez" />
-  </div><br/>
-  <div className="form-group">
-    <label htmlFor="input2">Recorrido:</label><br />
-    <input type="text" id="input2" placeholder="Joaquin@tecsup.edu.pe" />
-  </div><br/>
-  <div className="form-group">
-    <label htmlFor="input3">Horarios:</label><br />
-    <input type="text" id="input3" placeholder="913333332" />
-  </div><br/>
-  <div className="form-group">
-    <label htmlFor="input4">Paradero:</label><br />
-    <input type="text" id="input4" placeholder="1232" />
-  </div><br/>
- 
-  <button class="submit1" type="submit">Agregar</button>
-  <button  class="submit2" type="button" onClick={closeModal}>Cancelar</button><br/>
-</form>
-
-          </div>
-        </div>
-      )}
-    {editModalIsOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeEditModal}>
-              &times;
-            </span>
-            <h1>Actualizar Paradero</h1>
-            <form>
-  <div className="form-group">
-    <label htmlFor="input1">Ruta:</label><br />
-    <input type="text" id="input1" placeholder="Joaquin Marquez Perez" />
-  </div><br/>
-  <div className="form-group">
-    <label htmlFor="input2">Recorrido:</label><br />
-    <input type="text" id="input2" placeholder="Joaquin@tecsup.edu.pe" />
-  </div><br/>
-  <div className="form-group">
-    <label htmlFor="input3">Horarios:</label><br />
-    <input type="text" id="input3" placeholder="913333332" />
-  </div><br/>
-  <div className="form-group">
-    <label htmlFor="input4">Paradero:</label><br />
-    <input type="text" id="input4" placeholder="1232" />
-  </div><br/>
- 
-  <button class="submit1" type="submit">Agregar</button>
-  <button  class="submit2" type="button" onClick={closeModal}>Cancelar</button><br/>
-</form>
-
-  </div>
-</div> 
-)}</div>
-
+    const doc = new jsPDF();
+  
+    const fechaHoraActual = new Date();
+    const fechaHoraFormatoLocal = fechaHoraActual.toLocaleString();
+    doc.text(`MANIFIESTO DE PASAJEROS`);
+  
+    // Información adicional
+    const infoAdicional = [
+      { title: 'Placa:', value: 'E94f23' },
+      { title: 'N° de Pasajeros:', value: reservasConfirmadas.length },
+      { title: 'Fecha:', value: fechaHoraFormatoLocal },
+      { title: 'Origen:', value: 'Puente Nuevo' },
+      { title: 'Destino:', value: 'Tecsup-Santa Anita' },
+      { title: 'Hora de salida:', value: '7:00 am' },
+      { title: 'Empresa:', value: 'Tecsup' },
+      { title: '1er Conductor:', value: 'Javier Origuela' },
+    ];
     
+    doc.autoTable({
+      body: infoAdicional.map(item => [
+        { content: item.title, styles: { fontStyle: 'bold' } }, // Negrita
+        item.value,
+      ]),
+      startY: 30,
+      theme: 'grid', // Puedes cambiar el tema según tus preferencias (grid, striped, plain, etc.)
+    });
+    
+  
+    // Cabecera de la tabla de pasajeros
+    const tableHeaders = [['ORD', 'Asiento', 'Nombre y Apellidos', 'EMPRESA']];
+    const tableData = reservasConfirmadas.map((reserva, index) => [
+      index + 1,
+      reserva.asientoId,
+      `${reserva.nombre} ${reserva.apellidos}`,
+      'Tecsup',
+    ]);
+  
+    doc.autoTable({
+      head: tableHeaders,
+      body: tableData,
+      startY: doc.autoTable.previous.finalY + 10, // Ajusta la posición de inicio debajo de la info adicional
+      theme: 'grid',
+      
+      
+    });
+  
+    doc.save('manifiesto_reservas.pdf');
+  };
+  
+
+  return (
+    <div>
+      <h2>Reservas de BusTecsup</h2>
+      <table className='reserva'>
+        <thead>
+        <tr>
+              <th colSpan="5">
+                Buses
+                <button className='btnr' onClick={handleImprimirManifiesto}>Imprimir Manifiesto</button>
+              </th>
+            </tr>
+          <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>QR</th>
+            <th>Asiento ID</th>
+            <th>Usuario ID</th>
+            <th>Horario ID</th>
+            <th>Confirmado</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((reserva, index) => (
+            <tr key={reserva._id}>
+              <td>{index + 1}</td>
+              <td>{new Date(reserva.Fecha).toLocaleString()}</td>
+              <td>{reserva.qr}</td>
+              <td>{reserva.asientoId}</td>
+              <td>{reserva.usuarioId}</td>
+              <td>{reserva.horarioId}</td>
+              <td>{reserva.confirmado ? 'Sí' : 'No'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
-}
+};
 
 export default Reserva;

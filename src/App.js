@@ -8,8 +8,9 @@ import Inicio from './components/inicio';
 import Conductor from './components/conductores';
 import Usuario from './components/usuarios';
 import Reserva from './components/reserva';
+import Paradero from './components/paradero';
 
-import './css/registro.css';
+
 
 
 function App() {
@@ -27,11 +28,14 @@ function App() {
         <li>
           <Link to="/reserva">Reservas</Link>
         </li>
+        <li>
+          <Link to="/paradero">Paradero</Link>
+        </li>
       </ul>
     </div>
     <div className="navbar-right">
       <div className="user-profile">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="User Profile" className="user-image" />
+        <img src="https://a.storyblok.com/f/191576/1200x800/faa88c639f/round_profil_picture_before_.webp" alt="User Profile" className="user-image" />
       </div>
     </div>
   </div>
@@ -47,6 +51,9 @@ function App() {
       <Link to="/reserva" className="btn btn-dark">
         Reservas
       </Link>
+      <Link to="/paradero" className="btn btn-dark">
+        Paradero
+      </Link>
     </div>
     <hr></hr>
     <Routes>
@@ -54,6 +61,7 @@ function App() {
       <Route path="/conductor" element={<Conductor />} />
       <Route path="/usuario" element={<Usuario />} />
       <Route path="/reserva" element={<Reserva />} />
+      <Route path="/paradero" element={<Paradero />} />
     </Routes>
   </div>
 </Router>

@@ -1,0 +1,300 @@
+/* Estilos para el navbar */
+.inicio-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 10px 0; /* Eliminamos el relleno interno horizontal */
+    width: 100%; /* Aseguramos que el ancho sea del 100% */
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Agregamos una sombra con los valores adecuados */
+  }
+  
+  
+  .navbar-left ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar-left ul li {
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  /* Estilos para la tabla */
+  /* Estilos para la tabla */
+  .table-container {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #fdfbfb;
+    padding: 10px;
+    text-align: left;
+    width: 60%;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  tr:hover {
+    background-color: #e2e2e2;
+  }
+  
+  button {
+    padding: 6px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+  
+  }
+  
+  button:hover {
+    background-color: #4399FF;
+  }
+  
+  button:active {
+    background-color: #4399FF;
+  }
+  
+  /* Estilos para el modal */
+  .modal {
+    display: block; /* Asegúrate de que el modal esté visible */
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-bottom: 20%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+  }
+  
+  .registro-modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Ubicación central vertical y horizontal */
+    padding: 20px; /* Reducí el relleno para hacerlo más delgado y más responsive */
+    border: 1px solid #ffffff;
+    width: 90%; /* Ancho del modal */
+  
+    /* Ajustes para hacerlo más alto */
+    min-height: 698px; /* Altura mínima */
+    max-height: 80vh; /* Altura máxima del 80% del viewport height */
+  
+    /* Overflow auto para permitir desplazamiento si el contenido es más grande */
+    overflow-y: auto;
+  
+    /* Media query para hacerlo más ancho en pantallas más grandes */
+    @media (min-width: 768px) {
+      width: 70%;
+    }
+  }
+  
+
+  .close {
+    color: #fcf9f9;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  .btn1 {
+    position: absolute;
+    
+    right:260px; /* You can adjust this value to position the button exactly where you need it */
+    height:30px;
+    background-color: #0070FF;
+    color: rgb(255, 255, 255);
+    width: 160px;
+    
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+/* Estilos generales para el formulario */
+form1 {
+    width: 50%; /* Ajusta según tus preferencias */
+    max-width: 400px; /* Limita el ancho máximo para que no se extienda demasiado */
+    margin: 20px auto; /* Centra el formulario y agrega espacio en la parte superior e inferior */
+    padding: 20px; /* Añade relleno para separar el contenido del borde */
+    border: 2px solid #CECECE;
+    border-radius: 5px;
+    height: 617px;
+    background-color: #F6F6F6;
+  }
+  
+  
+  /* Estilos generales para los campos de entrada */
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    height: 9px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ACA3B9;
+  }
+  
+  /* Reglas de medios para hacerlo más responsivo */
+  @media screen and (min-width: 768px) {
+    /* Ajusta los estilos para pantallas más grandes (por ejemplo, tabletas y escritorios) */
+    form1 {
+      width: 60%;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    /* Ajusta los estilos para pantallas más grandes (por ejemplo, escritorios más grandes) */
+    form1 {
+      width: 50%;
+    }
+  }
+  
+
+
+  .registro-form {
+    width: 60%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #CECECE;
+    border-radius: 5px;
+    height: 420px;
+    background-color: rgba(246, 246, 246, 0.9); /* Color gris claro con 90% de opacidad */
+  }
+  
+  .registro-form input {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    margin-bottom: 15px; /* Añade espacio entre los campos de entrada */
+    height: 40px; /* Ajusta la altura según tus preferencias */
+    padding: 10px; /* Añade relleno para separar el texto del borde */
+    border-radius: 5px;
+    border: 2px solid #ACA3B9;
+  }
+  
+  
+  button.submit{
+    width: 35%;
+  
+  }
+  
+  h1{
+    color: #0756F0;
+    height: 30px;
+    text-align: center;
+    size: 20px;
+  }
+  
+  button.img{
+    background: #ffffff;
+    width: 30px;
+   
+  
+    
+  }
+  img.img{
+    width: 15px;
+  }
+label.label1 {
+    position: absolute;
+    left: 35.6%; /* Ajusta según tus necesidades, un valor menor para moverlo más a la izquierda */
+  }
+  
+  
+  button.submit1{
+    background-color: #0070FF;
+    width: 118px;
+    position: absolute;
+    left: 50.3%;
+    height: 6%;
+    
+  }
+  button.submit2{
+  
+    position: absolute;
+    background-color: #0756F0;
+    width: 110px;
+    left: 41%;
+    height: 6%;
+  }
+  
+div.modal-content{
+  background-color: rgba(197, 186, 186, 0.9);
+  margin: auto;
+  padding: 1px;
+  height: 90%;
+  border: 1px solid #ffffff;
+  width: 90%;
+
+}
+  a {
+    color: #000;
+    font-weight: bold; /* Para hacer el texto en negrita */
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Para establecer la fuente como Plus Jakarta Sans y como respaldo 'sans-serif' */
+    justify-content: center; /* Para alinear horizontalmente en el centro */
+    align-items: center; /* Para alinear verticalmente en el centro */
+    height: 100%;
+    font-size: 20px;
+    
+     /* Ajusta la altura al 100% del contenedor */
+  }
+  
+  div.navbar-left{
+  
+    position: relative;
+    left: 40%;
+    
+  }
+  
+  img.perfil-img{
+  
+    width: 50px;
+  
+  }
+  
+  
+  
+  

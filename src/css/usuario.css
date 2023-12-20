@@ -10,6 +10,13 @@ img.eliminar{
   align-items: center;
 }
 
+
+
+/* paradero.css */
+.background-container {
+  background-color: #db2020;
+}
+
 .eliminar {
   /* Estilos para la imagen */
   margin-left: 10px; /* Puedes ajustar este valor según sea necesario */

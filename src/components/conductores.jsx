@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../css/registro.css';
+import '../css/conductor.css';
 import eliminarImg from '../assets/eliminar.png';
 import editarImg from '../assets/editar.png';
 import FlechaImg from '../assets/flecha.png';
@@ -41,13 +41,13 @@ function Registro() {
 
   const openEditModal = conductor => {
     setEditConductor(conductor);
-    setEditPerfilImage(conductor.perfil); // Set the profile image for editing
+    setEditPerfilImage(conductor.perfil); 
     setEditModalIsOpen(true);
   };
 
   const closeEditModal = () => {
     setEditModalIsOpen(false);
-    setEditPerfilImage(null); // Clear the profile image when closing the modal
+    setEditPerfilImage(null); 
   };
 
   const openAddModal = () => {
@@ -81,7 +81,12 @@ function Registro() {
       method: 'POST',
       body: formData,
     })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
         console.log('Conductor agregado exitosamente:', data);
         // Actualizar la lista de conductores después de agregar uno nuevo
@@ -99,8 +104,12 @@ function Registro() {
         });
         closeAddModal();
       })
-      .catch(error => console.error('Error al agregar conductor:', error));
+      .catch(error => {
+        console.error('Error al agregar conductor:', error);
+        // Puedes mostrar un mensaje de error en la consola o en la interfaz de usuario
+      });
   };
+  
   
   const handleEditarConductor = () => {
     const formData = new FormData();
@@ -149,12 +158,11 @@ function Registro() {
             <tr>
               <th colSpan="6">
                 Conductores
-                <button className='btn1' onClick={openAddModal}>+ Registrar Conductor</button>
+                <button className='btn12' onClick={openAddModal}>+ Registrar Conductor</button>
               </th>
             </tr>
             <tr>
-              <th>Latitud<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha}/></th>
-              <th>Longitud<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha}/></th>
+        
               <th>Usuario<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha}/></th>
               <th>Nombre<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha}/></th>
               <th>Apellido<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha}/></th>
@@ -167,8 +175,7 @@ function Registro() {
           <tbody>
             {conductores.map(conductor => (
               <tr key={conductor.id}>
-                <td>{conductor.latitud}</td>
-                <td>{conductor.longitud}</td>
+                
                 <td>{conductor.usuario}</td>
                 <td>{conductor.nombre}</td>
                 <td>{conductor.apellido}</td>
@@ -195,45 +202,26 @@ function Registro() {
 
       { /* Modal para agregar un conductor */}
       {addModalIsOpen && (
-        <div className="modal">
+        <div className="modal registro-modal">
           <div className="modal-content">
             <span className="close" onClick={closeAddModal}>
               &times;
             </span>
             <h1>Registro de Conductores</h1>
-            <form>
+            <form className="registro-form">
+              
               <div className="form-group">
-                <label htmlFor="input1">Latitud:</label><br />
-                <input
-                  type="text"
-                  id="input1"
-                  placeholder=""
-                  value={addConductor.latitud}
-                  onChange={e => setAddConductor({ ...addConductor, latitud: e.target.value })}
-                />
-              </div><br/>
-              <div className="form-group">
-                <label htmlFor="input2">Longitud:</label><br />
-                <input
-                  type="text"
-                  id="input2"
-                  placeholder=""
-                  value={addConductor.longitud}
-                  onChange={e => setAddConductor({ ...addConductor, longitud: e.target.value })}
-                />
-              </div><br/>
-              <div className="form-group">
-                <label htmlFor="input3">Usuario:</label><br />
+                <label  className='label1' htmlFor="input3">Usuario:</label><br />
                 <input
                   type="text"
                   id="input3"
-                  placeholder="usario"
+                  placeholder=""
                   value={addConductor.usuario}
                   onChange={e => setAddConductor({ ...addConductor, usuario: e.target.value })}
                 />
-              </div><br/>
+              </div>
               <div className="form-group">
-                <label htmlFor="input4">Nombre:</label><br />
+                <label className='label1' htmlFor="input4">Nombre:</label><br />
                 <input
                   type="text"
                   id="input4"
@@ -241,41 +229,41 @@ function Registro() {
                   value={addConductor.nombre}
                   onChange={e => setAddConductor({ ...addConductor, nombre: e.target.value })}
                 />
-              </div><br/>
+              </div>
               <div className="form-group">
-                <label htmlFor="input5">Apellido:</label><br />
+                <label className='label1' htmlFor="input5">Apellido:</label><br />
                 <input
                   type="text"
                   id="input5"
-                  placeholder="Trujillo"
+                  placeholder=""
                   value={addConductor.apellido}
                   onChange={e => setAddConductor({ ...addConductor, apellido: e.target.value })}
                 />
-              </div><br/>
+              </div>
               <div className="form-group">
-                <label htmlFor="input7">Telefono:</label><br />
+                <label className='label1' htmlFor="input7">Telefono:</label><br />
                 <input
                   type="text"
                   id="input7"
-                  placeholder="Puente Nuevo"
+                  placeholder=""
                   value={addConductor.telefono}
                   onChange={e => setAddConductor({ ...addConductor, telefono: e.target.value })}
                 />
-              </div><br />
+              </div>
               <div className="form-group">
-              <label htmlFor="input8">Foto de Perfil:</label><br />
+              <label className='label1'  htmlFor="input8">Foto de Perfil:</label><br />
                 <input
                type="file"
                id="input8"
                onChange={e => setAddConductor({ ...addConductor, perfil: e.target.value })}
                 />
-              </div><br/>
+              </div>
               <button className="submit1" type="button" onClick={handleAgregarConductor}>
                 Agregar
               </button>
               <button className="submit2" type="button" onClick={closeAddModal}>
                 Cancelar
-              </button><br/>
+              </button>
             </form>
           </div>
         </div>
@@ -283,35 +271,17 @@ function Registro() {
 
       { /* Modal para editar un conductor */}
       {editModalIsOpen && (
-        <div className="modal">
+        <div className="modal registro-modal">
           <div className="modal-content">
             <span className="close" onClick={closeEditModal}>
               &times;
             </span>
             <h1>Actualizar Conductor</h1>
-            <form>
+            <form className="registro-form">
+              
+           
               <div className="form-group">
-                <label htmlFor="input1">Latitud:</label><br />
-                <input
-                  type="text"
-                  id="input1"
-                  placeholder={editConductor.latitud}
-                  value={editConductor.latitud}
-                  onChange={e => setEditConductor({ ...editConductor, latitud: e.target.value })}
-                />
-              </div><br/>
-              <div className="form-group">
-                <label htmlFor="input2">Longitud:</label><br />
-                <input
-                  type="text"
-                  id="input1"
-                  placeholder={editConductor.longitud}
-                  value={editConductor.longitud}
-                  onChange={e => setEditConductor({ ...editConductor, longitud: e.target.value })}
-                />
-              </div><br/>
-              <div className="form-group">
-                <label htmlFor="input2">Usuario:</label><br />
+                <label className='label1' htmlFor="input2">Usuario:</label><br />
                 <input
                   type="text"
                   id="input2"
@@ -319,9 +289,9 @@ function Registro() {
                   value={editConductor.usuario}
                   onChange={e => setEditConductor({ ...editConductor, usuario: e.target.value })}
                 />
-              </div><br/>
+              </div>
               <div className="form-group">
-                <label htmlFor="input3">Nombre:</label><br />
+                <label className='label1' htmlFor="input3">Nombre:</label><br />
                 <input
                   type="text"
                   id="input3"
@@ -329,9 +299,9 @@ function Registro() {
                   value={editConductor.nombre}
                   onChange={e => setEditConductor({ ...editConductor, nombre: e.target.value })}
                 />
-              </div><br/>
+              </div>
               <div className="form-group">
-                <label htmlFor="input4">Apellido:</label><br />
+                <label className='label1'  htmlFor="input4">Apellido:</label><br />
                 <input
                   type="text"
                   id="input4"
@@ -339,9 +309,9 @@ function Registro() {
                   value={editConductor.apellido}
                   onChange={e => setEditConductor({ ...editConductor, apellido: e.target.value })}
                 />
-              </div><br/>
+              </div>
               <div className="form-group">
-                <label htmlFor="input5">Telefono:</label><br />
+                <label className='label1' htmlFor="input5">Telefono:</label><br />
                 <input
                   type="text"
                   id="input5"
@@ -349,16 +319,16 @@ function Registro() {
                   value={editConductor.telefono}
                   onChange={e => setEditConductor({ ...editConductor, telefono: e.target.value })}
                 />
-              </div><br />
+              </div>
 
               <div className="form-group">
-              <label htmlFor="input6">Foto de Perfil:</label><br />
+              <label className='label1'  htmlFor="input6">Foto de Perfil:</label><br />
                 <input
                type="file"
                id="input6"
                onChange={e => setEditConductor({ ...editConductor, perfil: e.target.value })}
                 />
-              </div><br/>
+              </div>
               <button className="submit1" type="button" onClick={closeEditModal}>
                 Cancelar
               </button>
