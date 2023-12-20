@@ -57,17 +57,29 @@
     margin-top: 3%;
     margin-left: auto;
     margin-right: auto;
-    width: 20px;
-    text-align: center;  /* Esto centrará el contenido de la tabla */
- }
- 
-  th, td {
-    border: 1px solid #fdfbfb;
+    width: 100%;  /* Establece el ancho al 100% para que sea responsive */
+    max-width: 800px;  /* Opcional: establece un ancho máximo para evitar que la tabla se vuelva demasiado ancha en pantallas grandes */
+    border-collapse: collapse;  /* Combina los bordes de las celdas para un aspecto más limpio */
+}
+
+th, td {
     padding: 10px;
-    text-align: left;
-    width: 60%;
-  }
-  
+    border: 1px solid #ddd;  /* Añade bordes a las celdas para mayor claridad */
+}
+
+@media (max-width: 600px) {
+    /* Estilos específicos para pantallas más pequeñas */
+    table.reserva {
+        width: 100%;
+    }
+    
+    th, td {
+        display: block;  /* Cambia a un formato de bloque en pantallas más pequeñas */
+        width: 100%;  /* Ocupa todo el ancho disponible */
+        box-sizing: border-box;  /* Incluye el relleno y el borde en el ancho total */
+    }
+}
+
   th {
     background-color: #f2f2f2;
   }

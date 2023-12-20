@@ -23,10 +23,6 @@ function Paradero() {
     setModalIsOpen(true);
   };
   
-
-
-
-
   const [rutas, setRutas] = useState([]);
 
   const handleUpdateParadero = async (e) => {
@@ -69,15 +65,18 @@ function Paradero() {
     try {
       const paraderosData = await axios.get('https://api-node-bus.onrender.com/api/paraderos');
       const paraderos = paraderosData.data;
-
+  
       const updatedParaderos = await Promise.all(paraderos.map(async (paradero) => {
         try {
           const rutaResponse = await axios.get(`https://api-node-bus.onrender.com/api/rutas/${paradero.rutaId}`);
+          const ruta = rutaResponse.data;
+  
+          console.log('Ruta:', ruta); // Agrega este log para verificar la información de la ruta
   
           return {
             ...paradero,
-            puntoInicio: rutaResponse.data.punto_inicio,
-            puntoDestino: rutaResponse.data.punto_destino,
+            puntoInicio: ruta.punto_inicio,
+            puntoDestino: ruta.punto_destino,
           };
         } catch (error) {
           console.error('Error al obtener información adicional:', error);
@@ -90,6 +89,8 @@ function Paradero() {
       console.error('Error al obtener los paraderos:', error);
     }
   };
+  
+  
 
   useEffect(() => {
     fetchData();
@@ -160,32 +161,35 @@ function Paradero() {
               <th>Nombre Paradero<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha} /></th>
               <th>Latitud<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha} /></th>
               <th>Longitud<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha} /></th>
-              <th>Ruta<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha} /></th>
+              
               <th>Punto de Partida<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha} /></th>
               <th>Punto de Destino<img className="flecha" src={FlechaImg} alt="Flecha" onClick={handleClickFlecha} /></th>
               <th>Editar&nbsp;&nbsp;&nbsp;&nbsp;Eliminar</th>
             </tr>
           </thead>
           <tbody>
-            {paraderos.map(paradero => (
-              <tr key={paradero._id}>
-                <td>{paradero.nombre_paradero}</td>
-                <td>{paradero.latitud}</td>
-                <td>{paradero.longitud}</td>
-                <td>{paradero.rutaId}</td>
-                <td>{paradero.puntoInicio}</td>
-                <td>{paradero.puntoDestino}</td>
-                <td>
-                  <button className='img' onClick={() => openEditModal(paradero)}>
-                    <img className='img' src={editarImg} alt="Editar" />
-                  </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button className='img' onClick={() => handleClickEliminar(paradero._id)}>
-                    <img className='img' src={eliminarImg} alt="Eliminar" />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+  {paraderos.map(paradero => {
+    const ruta = rutas.find(ruta => ruta._id === paradero.rutaId);
+    return (
+      <tr key={paradero._id}>
+        <td>{paradero.nombre_paradero}</td>
+        <td>{paradero.latitud}</td>
+        <td>{paradero.longitud}</td>
+        <td>{ruta ? ruta.punto_inicio : 'N/A'}</td>
+        <td>{ruta ? ruta.punto_destino : 'N/A'}</td>
+        <td>
+          <button className='img' onClick={() => openEditModal(paradero)}>
+            <img className='img' src={editarImg} alt="Editar" />
+          </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button className='img' onClick={() => handleClickEliminar(paradero._id)}>
+            <img className='img' src={eliminarImg} alt="Eliminar" />
+          </button>
+        </td>
+      </tr>
+    );
+  })}
+</tbody>
+
         </table>
       </div>
 
