@@ -31,20 +31,7 @@ function Usuario() {
   const handleClickFlecha = () => {
     // Lógica para manejar el clic en el botón "Eliminar"
   };
-  const generatePDF = () => {
-    const doc = new jsPDF();
-
-    doc.text('Lista de Usuarios', 20, 10);
-
-    usuarios.forEach((usuario, index) => {
-      const yPos = 20 + index * 10;
-      doc.text(`Usuario: ${usuario.nombre}`, 20, yPos);
-      doc.text(`Usuario: ${usuario.email}`, 20, yPos + 5);
-      doc.text('-----------------------------', 20, yPos + 10);
-    });
-
-    doc.save('usuarios.pdf');
-  };
+  
 
  
   return (
