@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "./static/css/main.e9a492e9.css",
-    "main.js": "./static/js/main.ab122254.js",
-    "static/js/498.676dba31.chunk.js": "./static/js/498.676dba31.chunk.js",
-    "static/js/703.f71f1ec9.chunk.js": "./static/js/703.f71f1ec9.chunk.js",
-    "static/js/598.c8133849.chunk.js": "./static/js/598.c8133849.chunk.js",
-    "static/js/787.95c38f6d.chunk.js": "./static/js/787.95c38f6d.chunk.js",
+    "main.css": "./static/css/main.569ea168.css",
+    "main.js": "./static/js/main.1cfce424.js",
+    "static/js/239.fed821da.chunk.js": "./static/js/239.fed821da.chunk.js",
+    "static/js/213.a095d076.chunk.js": "./static/js/213.a095d076.chunk.js",
+    "static/js/732.e71a78a3.chunk.js": "./static/js/732.e71a78a3.chunk.js",
+    "static/js/453.0228e623.chunk.js": "./static/js/453.0228e623.chunk.js",
     "static/media/img1.png": "./static/media/img1.4d5caaae227aced9c800.png",
     "static/media/eliminar.png": "./static/media/eliminar.4cf85250644be08b0e98.png",
     "index.html": "./index.html",
-    "main.e9a492e9.css.map": "./static/css/main.e9a492e9.css.map",
-    "main.ab122254.js.map": "./static/js/main.ab122254.js.map",
-    "498.676dba31.chunk.js.map": "./static/js/498.676dba31.chunk.js.map",
-    "703.f71f1ec9.chunk.js.map": "./static/js/703.f71f1ec9.chunk.js.map",
-    "598.c8133849.chunk.js.map": "./static/js/598.c8133849.chunk.js.map",
-    "787.95c38f6d.chunk.js.map": "./static/js/787.95c38f6d.chunk.js.map"
+    "main.569ea168.css.map": "./static/css/main.569ea168.css.map",
+    "main.1cfce424.js.map": "./static/js/main.1cfce424.js.map",
+    "239.fed821da.chunk.js.map": "./static/js/239.fed821da.chunk.js.map",
+    "213.a095d076.chunk.js.map": "./static/js/213.a095d076.chunk.js.map",
+    "732.e71a78a3.chunk.js.map": "./static/js/732.e71a78a3.chunk.js.map",
+    "453.0228e623.chunk.js.map": "./static/js/453.0228e623.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9a492e9.css",
-    "static/js/main.ab122254.js"
+    "static/css/main.569ea168.css",
+    "static/js/main.1cfce424.js"
   ]
 }
